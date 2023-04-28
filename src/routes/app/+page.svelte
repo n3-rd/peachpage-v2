@@ -6,10 +6,12 @@
 
 	const user = userStore(auth);
 
-	onMount(() => {
-		if (!$user) {
-			goto('/');
-		}
+	onMount(async () => {
+		await auth.onAuthStateChanged((user) => {
+			if (!user) {
+				goto('/');
+			}
+		});
 	});
 
 	const logout = () => {

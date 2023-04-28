@@ -1,17 +1,25 @@
 <script>
+	import { onMount } from 'svelte';
 	import { auth } from '../lib/firebase.js';
 	import { userStore } from 'sveltefire';
-	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
+
 	const user = userStore(auth);
 
-	onMount(() => {
-		if ($user) {
-			goto('/app');
-		}
+	onMount(async () => {
+		await auth.onAuthStateChanged((user) => {
+			if (user) {
+				goto('/app');
+			}
+		});
 	});
 </script>
 
 <h1>Page</h1>
-<a href="/login">Login</a>
-<a href="/register">Register</a>
+
+{#if $user}
+	Logged in as {$user.displayName}
+{:else}
+	<a href="/login">Login</a>
+	<a href="/register">Register</a>
+{/if}
