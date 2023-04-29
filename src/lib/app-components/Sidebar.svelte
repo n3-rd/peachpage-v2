@@ -9,6 +9,14 @@
 	function setCurrentArticle(article) {
 		currentArticle.set(article);
 	}
+
+	const deleteArticle = async (article) => {
+		try {
+			await db.articles.delete(article.id);
+		} catch (err) {
+			console.log(err);
+		}
+	};
 </script>
 
 <div class="h-full w-full bg-slate-200 px-2 py-2 overflow-y-scroll">
@@ -31,6 +39,21 @@
 						<h4 class="w-32 text-base truncate">
 							{article.title}
 						</h4>
+					</div>
+					<div class="ml-auto">
+						<button
+							class="bg-transparent hover:bg-[#0f35f0] text-[#0f35f0] hover:text-white py-1 px-2 rounded-full"
+							on:click={(event) => {
+								event.stopPropagation();
+								deleteArticle(article);
+							}}
+							><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+								><path fill="#ffffff" d="M12 12h2v12h-2zm6 0h2v12h-2z" /><path
+									fill="currentColor"
+									d="M4 6v2h2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6zm4 22V8h16v20zm4-26h8v2h-8z"
+								/></svg
+							>
+						</button>
 					</div>
 				</li>
 			{/each}

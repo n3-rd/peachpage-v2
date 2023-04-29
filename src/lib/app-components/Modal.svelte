@@ -20,6 +20,10 @@
 
 	let articleData = [];
 	let isLoading = false;
+	/**
+	 * @type {string | null}
+	 */
+	let error = null;
 
 	const addArticle = async () => {
 		console.log('adding article');
@@ -45,6 +49,7 @@
 			closeModal();
 		} catch (err) {
 			console.log(err);
+			error = 'An error occurred while adding the article. Please try again.';
 		} finally {
 			isLoading = false;
 		}
@@ -60,6 +65,9 @@
 				bind:value={link}
 				class="w-full py-4 px-6 border-2 border-[#0f35f0] rounded-lg"
 			/>
+			{#if error}
+				<p class="text-red-500">{error}</p>
+			{/if}
 			<div class="actions">
 				<button
 					on:click={addArticle}
