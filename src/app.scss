@@ -1,3 +1,104 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    font-family: 'Satoshi', sans-serif;
+    color: #333;
+}
+.article-content {
+    h1 {
+        font-family: 'Lato', sans-serif;
+        font-size: 28px;
+        font-weight: 900;
+        line-height: 1.2;
+        opacity: 1;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        letter-spacing: -0.72px;
+        word-spacing: 0px;
+        text-transform: none;
+    }
+    h2 {
+        font-family: 'Lato', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.2;
+        opacity: 1;
+        margin-top: 30px;
+        margin-bottom: 5px;
+        letter-spacing: -0.72px;
+        word-spacing: 0px;
+        text-transform: none;
+    }
+    h3 {
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.2;
+        opacity: 1;
+        margin-top: 30px;
+        margin-bottom: 5px;
+        letter-spacing: 0px;
+        word-spacing: 0px;
+        text-transform: none;
+    }
+    p {
+        // font-family: "proxima-nova-thin", sans serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+        opacity: 1;
+        // margin-top: 0px;
+        // margin-bottom: 25px;
+        margin: 0 2em 25px 2em;
+        letter-spacing: -0.3px;
+        word-spacing: -0.1px;
+        text-transform: none;
+    }
+    // font-weight: 400;
+    // line-height: 1.75;
+    // overflow-x: hidden;
+    h4 {
+        font-size: 1.563rem;
+    }
+    h5 {
+        font-size: 1.25rem;
+    }
+}
+small,
+.text_small {
+    font-size: 0.8rem;
+}
+img {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+}
+pre,
+code {
+    overflow-x: auto !important;
+    background-color: #000;
+    color: #fff;
+}
+.action-buttons {
+    width: 100%;
+    opacity: 0.7;
+    // set mobile viewport width
+    @media (max-width: 576px) {
+        width: 100%;
+        text-align: center;
+    }
+}
+.main-title {
+    // @media (max-width: $breakpoint-md-max) {
+    // 	margin: 0 2em;
+    // }
+}
+/* SCSS HEX */
+$white: #ffffffff;
+$rich-black: #00171fff;
+$prussian-blue: #003459ff;
+$cerulean: #007ea7ff;
+$picton-blue: #00a8e8ff;
+
