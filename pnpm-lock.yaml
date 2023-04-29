@@ -10,6 +10,9 @@ dependencies:
   firebase:
     specifier: ^9.21.0
     version: 9.21.0
+  svelte-modals:
+    specifier: ^1.2.1
+    version: 1.2.1(svelte@3.58.0)
   sveltefire:
     specifier: ^0.2.3
     version: 0.2.3
@@ -2400,6 +2403,14 @@ packages:
     dependencies:
       svelte: 3.58.0
     dev: true
+
+  /svelte-modals@1.2.1(svelte@3.58.0):
+    resolution: {integrity: sha512-7MEKUx5wb5YppkXWFGeRlYM5FMGEnpix39u9Y6GtCNTMXRDZ7DB2Z50IYLMRTMW5lOsCdtJgFbB0E3iZMKmsAA==}
+    peerDependencies:
+      svelte: ^3.0.0
+    dependencies:
+      svelte: 3.58.0
+    dev: false
 
   /svelte-preprocess@5.0.3(postcss@8.4.23)(sass@1.62.1)(svelte@3.58.0)(typescript@5.0.4):
     resolution: {integrity: sha512-GrHF1rusdJVbOZOwgPWtpqmaexkydznKzy5qIC2FabgpFyKN57bjMUUUqPRfbBXK5igiEWn1uO/DXsa2vJ5VHA==}

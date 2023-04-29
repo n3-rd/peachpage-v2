@@ -33,6 +33,7 @@
 		"@firebase/auth": "^0.23.1",
 		"felte": "^1.2.7",
 		"firebase": "^9.21.0",
+		"svelte-modals": "^1.2.1",
 		"sveltefire": "^0.2.3"
 	}
 }
