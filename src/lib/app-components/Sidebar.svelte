@@ -19,7 +19,7 @@
 	};
 </script>
 
-<div class="h-full w-full bg-slate-200 px-2 py-2 overflow-y-scroll">
+<div class="h-full w-full bg-slate-200 px-2 py-2 overflow-y-scroll custom-scrollbar">
 	{#if $articleData}
 		<ul class="divide-y divide-slate-100 h-full">
 			{#each $articleData as article (article.uid)}

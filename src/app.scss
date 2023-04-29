@@ -95,6 +95,25 @@ code {
     // 	margin: 0 2em;
     // }
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
+  }
+
+
 /* SCSS HEX */
 $white: #ffffffff;
 $rich-black: #00171fff;

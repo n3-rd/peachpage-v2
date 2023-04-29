@@ -3,7 +3,7 @@
 	import { currentArticle } from '../../store';
 </script>
 
-<div class="h-full w-full px-4 overflow-y-scroll">
+<div class="h-full w-full px-4 overflow-y-scroll custom-scrollbar">
 	{#if $currentArticle}
 		<div class="article-title text-6xl font-black py-7">
 			{$currentArticle.title}
