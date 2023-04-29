@@ -19,10 +19,12 @@
 	let link;
 
 	let articleData = [];
+	let isLoading = false;
 
 	const addArticle = async () => {
 		console.log('adding article');
 		try {
+			isLoading = true;
 			const res = await fetch(`${import.meta.env.VITE_ARTICLE_FETCH_API}?url=${link}`);
 			const data = await res.json();
 			articleData = data.data;
@@ -43,6 +45,8 @@
 			closeModal();
 		} catch (err) {
 			console.log(err);
+		} finally {
+			isLoading = false;
 		}
 	};
 </script>
@@ -57,7 +61,17 @@
 				class="w-full py-4 px-6 border-2 border-[#0f35f0] rounded-lg"
 			/>
 			<div class="actions">
-				<button on:click={addArticle} class=" bg-[#0f35f0] py-2 px-4 rounded text-white">OK</button>
+				<button
+					on:click={addArticle}
+					class="bg-[#0f35f0] py-2 px-4 rounded text-white"
+					disabled={isLoading}
+				>
+					{#if isLoading}
+						<span class="animate-pulse">Loading...</span>
+					{:else}
+						OK
+					{/if}
+				</button>
 			</div>
 		</div>
 	</div>
