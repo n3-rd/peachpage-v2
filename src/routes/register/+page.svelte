@@ -60,7 +60,10 @@
 			<h1 class="text-4xl font-black">Register</h1>
 			<!-- <button on:click={loginWithGoogle}>Login with Google</button> -->
 			<div class="py-3">
-				<GoogleSignInButton on:click={loginWithGoogle} />
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<div on:click={loginWithGoogle}>
+					<GoogleSignInButton />
+				</div>
 			</div>
 			<form on:submit={register}>
 				<div class="py-4">
