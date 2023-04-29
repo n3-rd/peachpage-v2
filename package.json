@@ -31,9 +31,11 @@
 	"type": "module",
 	"dependencies": {
 		"@firebase/auth": "^0.23.1",
+		"dexie": "4.0.1-alpha.10",
 		"felte": "^1.2.7",
 		"firebase": "^9.21.0",
 		"svelte-modals": "^1.2.1",
-		"sveltefire": "^0.2.3"
+		"sveltefire": "^0.2.3",
+		"uid": "^2.0.2"
 	}
 }

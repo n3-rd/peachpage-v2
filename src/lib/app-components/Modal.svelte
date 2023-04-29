@@ -1,5 +1,7 @@
 <script>
 	import { closeModal } from 'svelte-modals';
+	import { db } from '../db';
+	import { uid } from 'uid';
 
 	// provided by <Modals />
 	/**
@@ -15,6 +17,34 @@
 	 * @type {any}
 	 */
 	let link;
+
+	let articleData = [];
+
+	const addArticle = async () => {
+		console.log('adding article');
+		try {
+			const res = await fetch(`${import.meta.env.VITE_ARTICLE_FETCH_API}?url=${link}`);
+			const data = await res.json();
+			articleData = data.data;
+			const id = await db.articles.add({
+				uid: uid(),
+				url: articleData.url,
+				title: articleData.title,
+				description: articleData.description,
+				image: articleData.image,
+				content: articleData.content,
+				author: articleData.author,
+				source: articleData.source,
+				published: articleData.published,
+				ttr: articleData.ttr
+			});
+			console.log(data);
+			console.log(`Added article with id ${id}`);
+			closeModal();
+		} catch (err) {
+			console.log(err);
+		}
+	};
 </script>
 
 {#if isOpen}
@@ -27,7 +57,7 @@
 				class="w-full py-4 px-6 border-2 border-[#0f35f0] rounded-lg"
 			/>
 			<div class="actions">
-				<button on:click={closeModal} class=" bg-[#0f35f0] py-2 px-4 rounded text-white">OK</button>
+				<button on:click={addArticle} class=" bg-[#0f35f0] py-2 px-4 rounded text-white">OK</button>
 			</div>
 		</div>
 	</div>
