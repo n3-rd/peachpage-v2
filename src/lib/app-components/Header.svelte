@@ -11,16 +11,16 @@
 	};
 </script>
 
-<div class="h-[5vh] w-screen bg-red-400 sticky flex justify-between px-4">
+<div class="h-[5vh] w-screen bg-[#0f35ff] text-white sticky flex justify-between px-4 py-4">
 	<div class="user flex items-center gap-3">
-		<div class="user-image flex justify-center items-center">
+		<div class="user-image flex justify-center items-center h-[2rem] w-[2rem]">
 			{#if $user?.photoURL}
-				<img src={$user?.photoURL} alt="user" class="h-[2rem] w-[2rem] rounded-full" />
+				<img src={$user?.photoURL} alt="user" class="h-full w-full rounded-full" />
 			{:else}
 				<img
-					src="https://ui-avatars.com/api/?name={$user?.displayName}?background=random"
+					src="https://ui-avatars.com/api/?name={$user?.displayName}&background=random"
 					alt="user"
-					class="h-[2rem] rounded-xl"
+					class="h-full rounded-xl"
 				/>
 			{/if}
 		</div>
@@ -28,7 +28,7 @@
 			{$user?.displayName}
 		</div>
 	</div>
-	<div class="actions">
+	<div class="actions flex items-center gap-3">
 		<button on:click={logout}>Logout</button>
 	</div>
 </div>

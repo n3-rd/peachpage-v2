@@ -6,7 +6,7 @@
 	 */
 	let articles = [];
 	onMount(async () => {
-		const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+		const res = await fetch('https://jsonplaceholder.cypress.io/posts');
 		const data = await res.json();
 		articles = data;
 	});
