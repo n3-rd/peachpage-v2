@@ -19,13 +19,15 @@
 	};
 </script>
 
-<div class="h-full w-full bg-slate-200 px-2 py-2 overflow-y-scroll custom-scrollbar">
+<div
+	class="h-full w-full bg-slate-200 dark:bg-gray-800 px-2 py-2 overflow-y-scroll custom-scrollbar select-none"
+>
 	{#if $articleData}
-		<ul class="divide-y divide-slate-100 h-full">
+		<ul class="divide-y divide-slate-100 dark:divide-none h-full">
 			{#each $articleData as article (article.uid)}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<li
-					class="w-full flex items-center gap-4 px-4 py-3 cursor-pointer bg-white text-slate-700 rounded hover:bg-[#0f35f0] hover:text-[#fff]"
+					class="w-full flex items-center gap-4 px-4 py-3 my-3 cursor-pointer bg-white dark:bg-gray-950 dark:text-gray-100 text-slate-700 rounded hover:bg-[#0f35f0] hover:text-[#fff]"
 					on:click={() => setCurrentArticle(article)}
 				>
 					<div class="w-1/3 flex items-center self-center">

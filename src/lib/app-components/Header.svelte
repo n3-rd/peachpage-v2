@@ -9,17 +9,27 @@
 		auth.signOut();
 		goto('/');
 	};
+
+	let isDarkMode = false;
+
+	function toggleDarkMode() {
+		isDarkMode = !isDarkMode;
+		// @ts-ignore
+		document.querySelector('html').classList.toggle('dark');
+	}
 </script>
 
 <!-- Component: Navbar with Avatar -->
 <!-- Header -->
 <header
-	class="relative z-20 w-full border-b shadow-lg border-b-1 border-slate-200 bg-white/90 shadow-slate-700/5 after:absolute after:top-full after:left-0 after:z-10 after:block after:h-px after:w-full after:bg-slate-200 lg:border-slate-200 lg:backdrop-blur-sm lg:after:hidden"
+	class="relative z-20 w-full border-b shadow-lg border-b-1 border-slate-200 bg-white/90 shadow-slate-700/5 after:absolute after:top-full after:left-0 after:z-10 after:block after:h-px after:w-full after:bg-slate-200 lg:border-slate-200 lg:backdrop-blur-sm lg:after:hidden
+	dark:bg-black select-none
+	"
 >
 	<div class="relative mx-auto max-w-full px-6 lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem]">
 		<nav
 			aria-label="main navigation"
-			class="flex h-[3.5rem] items-stretch justify-between font-medium text-slate-700"
+			class="flex h-[3.5rem] items-stretch justify-between font-medium text-slate-700 dark:text-gray-100"
 		>
 			<!-- Brand logo -->
 			<!-- svelte-ignore a11y-invalid-attribute -->
@@ -84,10 +94,10 @@
 						role="menuitem"
 						aria-haspopup="false"
 						tabindex="0"
-						class="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-[#0f35f0] focus:bg-emerald-50 focus:outline-none focus-visible:outline-none lg:px-8"
-						href="javascript:void(0)"
+						class="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-[#0f34f0] focus:bg-slate-300 focus:outline-none focus-visible:outline-none lg:px-8"
+						href="https://github.com/n3-rd/peachpage"
 					>
-						<span>Blog</span></a
+						<span>Github</span></a
 					>
 				</li>
 				<li role="none" class="flex items-stretch">
@@ -96,10 +106,12 @@
 						aria-current="page"
 						aria-haspopup="false"
 						tabindex="0"
-						class="flex items-center gap-2 py-4 transition-colors duration-300 text-[#0f35f0] hover:text-emerald-600 focus:bg-emerald-50 focus:outline-none focus-visible:outline-none lg:px-8"
+						class="flex items-center gap-2 py-4 transition-colors duration-300 text-[#0f35f0] hover:text-[#0f83f0] focus:bg-slate-300 focus:outline-none focus-visible:outline-none lg:px-8"
 						href="#"
 					>
-						<span>Planning</span>
+						<button class="text-gray-500 dark:text-gray-400" on:click={toggleDarkMode}>
+							{isDarkMode ? 'Light' : 'Dark'} Mode
+						</button>
 					</a>
 				</li>
 				<li role="none" class="flex items-stretch">
@@ -107,7 +119,7 @@
 						role="menuitem"
 						aria-haspopup="false"
 						tabindex="0"
-						class="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-[#0f35f0] focus:bg-emerald-50 focus:outline-none focus-visible:outline-none lg:px-8"
+						class="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-[#0f35f0] focus:bg-slate-300 focus:outline-none focus-visible:outline-none lg:px-8"
 					>
 						<button on:click={logout}>Logout</button>
 					</div>
