@@ -2,6 +2,9 @@
 	import { onMount } from 'svelte';
 	import { currentArticle } from '../../store';
 	import ShareActions from './ShareActions.svelte';
+	import { liveQuery } from 'dexie';
+	import { db } from '../db';
+	let articleData = liveQuery(() => db.articles.toArray());
 	/**
 	 * @param {number} ttr
 	 */
@@ -11,6 +14,17 @@
 		return `${minutes}m ${seconds}s`;
 	}
 </script>
+
+{#if articleData == null}
+	<div class="h-full w-full flex justify-center items-center">
+		<div class="text-4xl font-bold">No articles saved</div>
+	</div>
+	<!-- else if -->
+{:else if $currentArticle.url === ''}
+	<div class="h-full w-full flex justify-center items-center">
+		<div class="text-4xl font-bold">No article selected</div>
+	</div>
+{:else}{/if}
 
 <div class="h-full w-full px-4 overflow-y-scroll custom-scrollbar">
 	{#if $currentArticle}
@@ -30,10 +44,21 @@
 			{/if}
 			<!-- ttr -->
 			{#if $currentArticle.ttr}
-				<div class="article-reading-time text-2xl font-bold">
+				<div class="article-reading-time text-lg font-normal">
 					{formatTTR($currentArticle.ttr)} Read
 				</div>
 			{/if}
+		</div>
+		<div>
+			Original link:
+			<a
+				href={$currentArticle.url}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-blue-500 underline"
+			>
+				{$currentArticle.url}
+			</a>
 		</div>
 		<div class="share w-full flex">
 			<ShareActions />
