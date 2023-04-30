@@ -35,7 +35,7 @@
 					viewBox="0 0 300 300"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
-					class="w-12 h-12 bg-emerald-500"
+					class="w-12 h-12 bg-[#0f35f0]"
 				>
 					<path
 						fill-rule="evenodd"
@@ -84,7 +84,7 @@
 						role="menuitem"
 						aria-haspopup="false"
 						tabindex="0"
-						class="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:bg-emerald-50 focus:outline-none focus-visible:outline-none lg:px-8"
+						class="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-[#0f35f0] focus:bg-emerald-50 focus:outline-none focus-visible:outline-none lg:px-8"
 						href="javascript:void(0)"
 					>
 						<span>Blog</span></a
@@ -96,7 +96,7 @@
 						aria-current="page"
 						aria-haspopup="false"
 						tabindex="0"
-						class="flex items-center gap-2 py-4 transition-colors duration-300 text-emerald-500 hover:text-emerald-600 focus:bg-emerald-50 focus:outline-none focus-visible:outline-none lg:px-8"
+						class="flex items-center gap-2 py-4 transition-colors duration-300 text-[#0f35f0] hover:text-emerald-600 focus:bg-emerald-50 focus:outline-none focus-visible:outline-none lg:px-8"
 						href="#"
 					>
 						<span>Planning</span>
@@ -107,7 +107,7 @@
 						role="menuitem"
 						aria-haspopup="false"
 						tabindex="0"
-						class="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:bg-emerald-50 focus:outline-none focus-visible:outline-none lg:px-8"
+						class="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-[#0f35f0] focus:bg-emerald-50 focus:outline-none focus-visible:outline-none lg:px-8"
 					>
 						<button on:click={logout}>Logout</button>
 					</div>

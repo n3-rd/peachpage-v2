@@ -55,6 +55,16 @@
 			isLoading = false;
 		}
 	};
+
+	const pasteLink = async () => {
+		try {
+			const text = await navigator.clipboard.readText();
+			link = text;
+		} catch (err) {
+			console.log(err);
+			error = 'An error occurred while pasting the link. Please try again.';
+		}
+	};
 </script>
 
 {#if isOpen}
@@ -76,10 +86,17 @@
 					disabled={isLoading}
 				>
 					{#if isLoading}
-						<span class="animate-pulse">Loading...</span>
+						<span class="animate-pulse">Fetching...</span>
 					{:else}
 						OK
 					{/if}
+				</button>
+				<button
+					on:click={pasteLink}
+					disabled={isLoading}
+					class="bg-[#0f35f0] py-2 px-4 rounded text-white ml-2 disabled:opacity-50"
+				>
+					Paste
 				</button>
 			</div>
 		</div>
