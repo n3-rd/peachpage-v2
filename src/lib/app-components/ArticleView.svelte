@@ -63,7 +63,7 @@
 		<div class="share w-full flex">
 			<ShareActions />
 		</div>
-		<div class="article-image">
+		<div class="article-image pt-4 pb-7">
 			<img src={$currentArticle.image} alt="article main pic" />
 		</div>
 
