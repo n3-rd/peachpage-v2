@@ -3,5 +3,5 @@ import Dexie from 'dexie';
 
 export const db = new Dexie('articleDatabase');
 db.version(1).stores({
-    articles: '++id, url, title, description, image, content, authour, source, published, ttr, uid', // Primary key and indexed props
+    articles: '++id, url, title, description, image, content, author, source, published, ttr, uid', // Primary key and indexed props
 });

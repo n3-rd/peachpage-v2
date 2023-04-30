@@ -16,6 +16,7 @@
 	/**
 	 * @type {any}
 	 */
+
 	let link;
 
 	let articleData = [];

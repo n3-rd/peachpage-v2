@@ -1,3 +1,10 @@
 import { writable } from 'svelte/store';
 
-export const currentArticle = writable(null);
+export const currentArticle = writable({
+    title: '',
+    author: '',
+    published: '',
+    ttr: 0,
+    image: '',
+    content: ''
+});

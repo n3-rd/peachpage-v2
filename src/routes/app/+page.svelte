@@ -29,7 +29,7 @@
 	<div class="w-[30%] h-[95vh]">
 		<Sidebar />
 	</div>
-	<div class="w-[70%] h-[95vh] overflow-hidden">
+	<div class="w-[70%] h-[95vh] overflow-hidden overflow-hidden">
 		<ArticleView />
 		<div class="absolute bottom-4 right-4">
 			<AddArticleButton />
