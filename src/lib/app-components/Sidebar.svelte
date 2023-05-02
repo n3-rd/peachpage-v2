@@ -24,10 +24,10 @@
 >
 	{#if $articleData}
 		<ul class="divide-y divide-slate-100 dark:divide-none h-full">
-			{#each $articleData as article (article.uid)}
+			{#each $articleData.reverse() as article (article.uid)}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<li
-					class="w-full flex items-center gap-4 px-4 py-3 my-3 cursor-pointer bg-white dark:bg-gray-950 dark:text-gray-100 text-slate-700 rounded hover:bg-[#0f35f0] hover:text-[#fff]"
+					class="w-full flex items-center gap-4 px-4 py-3 my-3 cursor-pointer bg-white dark:bg-gray-950 dark:hover:bg-[#0f35f0] dark:text-gray-100 text-slate-700 rounded hover:bg-[#0f35f0] hover:text-[#fff] hover:transition-colors"
 					on:click={() => setCurrentArticle(article)}
 				>
 					<div class="w-1/3 flex items-center self-center">

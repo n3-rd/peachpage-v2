@@ -26,7 +26,7 @@
 	</div>
 {:else}{/if}
 
-<div class="h-full w-full px-4 overflow-y-scroll custom-scrollbar dark:bg-black dark:text-gray-100">
+<div class="h-full w-full px-4 overflow-y-scroll custom-scrollbar dark:bg-gray-950 dark:text-gray-100">
 	{#if $currentArticle}
 		<div class="article-title text-6xl font-black py-7">
 			{$currentArticle.title}

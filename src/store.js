@@ -9,3 +9,15 @@ export const currentArticle = writable({
     image: '',
     content: ''
 });
+
+// const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
+
+// export const darkMode = writable(isDarkMode);
+
+// darkMode.subscribe(value => {
+//     // @ts-ignore
+//     localStorage.setItem('isDarkMode', value);
+//     // @ts-ignore
+//     document.querySelector('html').classList.toggle('dark', value);
+// });
+

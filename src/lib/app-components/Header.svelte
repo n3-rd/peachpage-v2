@@ -133,8 +133,8 @@
 					>
 						<img
 							src={$user?.photoURL}
-							alt="user name"
-							title="user name"
+							alt={$user?.displayName}
+							title={$user?.displayName}
 							width="48"
 							height="48"
 							class="max-w-full rounded"
@@ -146,8 +146,8 @@
 					>
 						<img
 							src="https://ui-avatars.com/api/?name={$user?.displayName}&background=random"
-							alt="user name"
-							title="user name"
+							alt={$user?.displayName}
+							title={$user?.displayName}
 							width="48"
 							height="48"
 							class="max-w-full rounded"
