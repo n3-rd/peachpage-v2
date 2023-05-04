@@ -4,6 +4,7 @@
 	import ShareActions from './ShareActions.svelte';
 	import { liveQuery } from 'dexie';
 	import { db } from '../db';
+	// @ts-ignore
 	let articleData = liveQuery(() => db.articles.toArray());
 	/**
 	 * @param {number} ttr
@@ -26,7 +27,9 @@
 	</div>
 {:else}{/if}
 
-<div class="h-full w-full px-4 overflow-y-scroll custom-scrollbar dark:bg-gray-950 dark:text-gray-100">
+<div
+	class="h-full w-full px-4 overflow-y-scroll custom-scrollbar dark:bg-gray-950 dark:text-gray-100"
+>
 	{#if $currentArticle}
 		<div class="article-title text-6xl font-black py-7">
 			{$currentArticle.title}
@@ -63,9 +66,11 @@
 		<div class="share w-full flex">
 			<ShareActions />
 		</div>
-		<div class="article-image pt-4 pb-7">
-			<img src={$currentArticle.image} alt="article main pic" />
-		</div>
+		{#if $currentArticle.image}
+			<div class="article-image pt-4 pb-7">
+				<img src={$currentArticle.image} alt="article main pic" />
+			</div>
+		{/if}
 
 		<div class="article-content">
 			{@html $currentArticle.content}

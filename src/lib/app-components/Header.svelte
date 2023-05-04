@@ -2,6 +2,7 @@
 	import { auth } from '$lib/firebase';
 	import { userStore } from 'sveltefire';
 	import { goto } from '$app/navigation';
+	import { browser } from '$app/environment';
 
 	const user = userStore(auth);
 
@@ -10,12 +11,30 @@
 		goto('/');
 	};
 
-	let isDarkMode = false;
+	let darkMode = false;
 
-	function toggleDarkMode() {
-		isDarkMode = !isDarkMode;
-		// @ts-ignore
-		document.querySelector('html').classList.toggle('dark');
+	const handleSwitchDarkMode = () => {
+		console.log('dark mode');
+		darkMode = !darkMode;
+
+		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+
+		darkMode
+			? document.documentElement.classList.add('dark')
+			: document.documentElement.classList.remove('dark');
+	};
+
+	if (browser) {
+		if (
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			document.documentElement.classList.add('dark');
+			darkMode = true;
+		} else {
+			document.documentElement.classList.remove('dark');
+			darkMode = false;
+		}
 	}
 </script>
 
@@ -106,11 +125,11 @@
 						aria-current="page"
 						aria-haspopup="false"
 						tabindex="0"
-						class="flex items-center gap-2 py-4 transition-colors duration-300 text-[#0f35f0] hover:text-[#0f83f0] focus:bg-slate-300 focus:outline-none focus-visible:outline-none lg:px-8"
+						class="flex items-center gap-2 py-4 transition-colors duration-300 text-[#abb0c7] hover:text-[#0f83f0] focus:bg-slate-300 focus:outline-none focus-visible:outline-none lg:px-8"
 						href="#"
 					>
-						<button class="text-gray-500 dark:text-gray-400" on:click={toggleDarkMode}>
-							{isDarkMode ? 'Light' : 'Dark'} Mode
+						<button class="text-gray-500 dark:text-gray-400" on:click={handleSwitchDarkMode}>
+							{darkMode ? 'Light' : 'Dark'} Mode
 						</button>
 					</a>
 				</li>

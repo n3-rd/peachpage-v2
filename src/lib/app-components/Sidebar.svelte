@@ -1,17 +1,22 @@
 <script>
+	// @ts-ignore
 	import { onMount } from 'svelte';
 	import { liveQuery } from 'dexie';
 	import { db } from '../db';
 	import { currentArticle } from '../../store';
 
+	// @ts-ignore
 	let articleData = liveQuery(() => db.articles.toArray());
 
+	// @ts-ignore
 	function setCurrentArticle(article) {
 		currentArticle.set(article);
 	}
 
+	// @ts-ignore
 	const deleteArticle = async (article) => {
 		try {
+			// @ts-ignore
 			await db.articles.delete(article.id);
 		} catch (err) {
 			console.log(err);
@@ -20,10 +25,10 @@
 </script>
 
 <div
-	class="h-full w-full bg-slate-200 dark:bg-gray-800 px-2 py-2 overflow-y-scroll custom-scrollbar select-none"
+	class="h-full w-full bg-slate-200 dark:bg-gray-800 px-2 py-4 overflow-y-scroll custom-scrollbar select-none"
 >
 	{#if $articleData}
-		<ul class="divide-y divide-slate-100 dark:divide-none h-full">
+		<ul class="divide-y divide-slate-100 dark:divide-none">
 			{#each $articleData.reverse() as article (article.uid)}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<li
